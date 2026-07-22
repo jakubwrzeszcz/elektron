@@ -70,13 +70,13 @@
         public function removeProduct() {
             $productID = $_POST['productID'];
             $productModel = new ProductModel($this->database);
-            $_SESSION['flash_success'] = false;
+            $_SESSION['flash_success_remove'] = false;
 
             try {
                 $productModel->deleteProduct($productID);
-                $_SESSION['flash_success'] = true;
+                $_SESSION['flash_success_remove'] = true;
             } catch (Exception $e) {
-                $_SESSION['flash_success'] = false;
+                $_SESSION['flash_success_remove'] = false;
                 $error_message = $e->getMessage();
             }
 
@@ -84,8 +84,8 @@
             exit;
         }
 
-        public function editProduct() {
-            $productID = $_POST['productID'];
+        public function editProductForm() {
+            $productID = (int)$_POST['productID'];
             $productModel = new ProductModel($this->database);
 
             try {
@@ -98,6 +98,29 @@
                 $error_message = $e->getMessage();
             }
             require __DIR__ . '/../views/dashboard/AdminEditProductForm.php';
+        }
+
+        public function updateProduct() {
+            $productID = (int)$_POST['productID'];
+            $productName = $_POST['productName'];
+            $grossPrice = str_replace(',', '.', $_POST['grossPrice']);
+            $netPrice = str_replace(',', '.', $_POST['netPrice']);
+            $description = $_POST['description'];
+            $isAvailable = $_POST['isAvailable'];
+            $_SESSION['flash_success_update'] = false;
+
+            $productModel = new ProductModel($this->database);
+
+            try {
+                $productModel->updateProduct($productID, $productName, $grossPrice, $netPrice, $description, $isAvailable);
+                $_SESSION['flash_success_update'] = true;
+            } catch (Exception $e) {
+                $_SESSION['flash_success_update'] = false;
+                $error_message = $e->getMessage();
+            }
+
+            header("Location: /elektron/admin/produkty");
+            exit;
         }
     }
 ?>

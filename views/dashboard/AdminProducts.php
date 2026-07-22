@@ -20,14 +20,25 @@
                 </div>
             </header>
 
-            <?php if (isset($_SESSION['flash_success']) && $_SESSION['flash_success'] === true): ?>
+            <?php if (isset($_SESSION['flash_success_remove']) && $_SESSION['flash_success_remove'] === true): ?>
                 <div style="color: #27ae60; background-color: #e8f8f5; border: 1px solid #27ae60; padding: 15px; margin-bottom: 20px; border-radius: 4px; text-align: center; font-weight: bold;">
                     Produkt został pomyślnie usunięty do bazy danych!
                 </div>
-                <?php unset($_SESSION['flash_success']);?>
+                <?php unset($_SESSION['flash_success_remove']);?>
             <?php elseif (isset($error_message)): ?>
                 <div style="color: #c0392b; background-color: #f9ead9; border: 1px solid #c0392b; padding: 15px; margin-bottom: 20px; border-radius: 4px; text-align: center; font-weight: bold;">
-                    Błąd podczas usuwanią produktu: <?php echo $error_message; ?>
+                    Błąd podczas usuwania produktu: <?php echo $error_message; ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (isset($_SESSION['flash_success_update']) && $_SESSION['flash_success_update'] === true): ?>
+                <div style="color: #27ae60; background-color: #e8f8f5; border: 1px solid #27ae60; padding: 15px; margin-bottom: 20px; border-radius: 4px; text-align: center; font-weight: bold;">
+                    Produkt został pomyślnie zapisany do bazy danych!
+                </div>
+                <?php unset($_SESSION['flash_success_update']);?>
+            <?php elseif (isset($error_message)): ?>
+                <div style="color: #c0392b; background-color: #f9ead9; border: 1px solid #c0392b; padding: 15px; margin-bottom: 20px; border-radius: 4px; text-align: center; font-weight: bold;">
+                    Błąd podczas zapisywania produktu: <?php echo $error_message; ?>
                 </div>
             <?php endif; ?>
             
