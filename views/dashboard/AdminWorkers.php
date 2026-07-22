@@ -74,7 +74,6 @@
 
             <div class="buttons">
                 <a href="/elektron/admin" class="button button-back">Powrót do menu</a>
-                <a href="/elektron/dodaj.php?podstrona=pracownicy" class="button button-add">Dodaj nowego pracownika</a>
             </div>
             
         </main>

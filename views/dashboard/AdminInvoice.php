@@ -64,7 +64,6 @@
 
             <div class="buttons">
                 <a href="/elektron/admin" class="button button-back">Powrót do menu</a>
-                <a href="/elektron/dodaj.php?podstrona=faktury" class="button button-add">Dodaj nową fakturę</a>
             </div>
             
         </main>
