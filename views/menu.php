@@ -5,11 +5,11 @@
     <a href="/elektron/admin" class="menu-link">Strona Główna</a>
     
     <?php if(can('firmy.manage')): ?>
-        <a href="/elektron/admin/firmy" class="menu-link">Zarządzanie firmami</a>
+        <a href="/elektron/admin/firmy" class="menu-link">Wyświetlanie firm</a>
     <?php endif; ?>
 
     <?php if(can('faktury.manage')): ?>
-        <a href="/elektron/admin/faktury" class="menu-link">Zarządzanie fakturami</a>
+        <a href="/elektron/admin/faktury" class="menu-link">Wyświetlanie faktur</a>
     <?php endif; ?>
 
     <?php if(can('produkty.manage')): ?>
@@ -17,7 +17,7 @@
     <?php endif; ?>
 
     <?php if(can('zamowienia.manage')): ?>
-        <a href="/elektron/admin/zamowienia" class="menu-link">Zarządzanie zamówieniami</a>
+        <a href="/elektron/admin/zamowienia" class="menu-link">Wyświetlanie zamówieniami</a>
     <?php endif; ?>
 
     <?php if(can('pracownicy.manage')): ?>

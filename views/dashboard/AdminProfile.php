@@ -17,6 +17,7 @@
             </div>
             <section class='profile-container'>
                 <?php
+                    foreach ($row as $pearsonRow):
                     echo "
                     <section class='profile-wrapper'>
                     <div class='profile-cardheader'>
@@ -24,7 +25,7 @@
                                 <img src='../img/name-icon.svg' alt='Pracownik'>
                             </div>
                             <div class='profile-summary'>
-                                <h1>{$row['imie']} {$row['nazwisko']}</h1> <span class='badge-role'>{$row['nazwa_stanowiska']}</span>
+                                <h1>{$pearsonRow['imie']} {$pearsonRow['nazwisko']}</h1> <span class='badge-role'>{$pearsonRow['nazwa_stanowiska']}</span>
                             </div>
                         </div>
 
@@ -36,7 +37,7 @@
                                 </h2>
                                 <div class='info-group'>
                                     <label>Obecne stanowisko</label>
-                                    <p>{$row['nazwa_stanowiska']}</p>
+                                    <p>{$pearsonRow['nazwa_stanowiska']}</p>
                                 </div>
                             </div>
 
@@ -48,27 +49,28 @@
                                 
                                 <div class='info-group full-width'>
                                     <label>Ulica i numer</label>
-                                    <p>{$row['nazwa_ulicy']} {$row['numer_firmy']}</p>
+                                    <p>{$pearsonRow['nazwa_ulicy']} {$pearsonRow['numer_firmy']}</p>
                                 </div>
                                 
                                 <div class='info-row'>
                                     <div class='info-group'>
                                         <label>Kod pocztowy</label>
-                                        <p>{$row['kod_pocztowy']}</p>
+                                        <p>{$pearsonRow['kod_pocztowy']}</p>
                                     </div>
                                     <div class='info-group'>
                                         <label>Miejscowość</label>
-                                        <p>{$row['nazwa_miejscowosci']}</p>
+                                        <p>{$pearsonRow['nazwa_miejscowosci']}</p>
                                     </div>
                                 </div>
 
                                 <div class='info-group'>
                                     <label>Województwo</label>
-                                    <p>{$row['wojewodztwo']}</p>
+                                    <p>{$pearsonRow['wojewodztwo']}</p>
                                 </div>
                             </div>
                         </div>
                     </section>";
+                    endforeach;
                 ?>
             </section>
         </main>

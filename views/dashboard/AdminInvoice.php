@@ -14,7 +14,7 @@
                 <img src="img/faktura.svg" style="height: 100px" class="nav-logo" alt="Ikona faktury">
                 <div class="page-header-text">
                     <h1>Zarządzanie fakturami</h1>
-                    <p>Dodawanie, edycja i usuwanie faktur z bazy danych</p>
+                    <p>Przeglądanie faktur z bazy danych</p>
                 </div>
             </div>
 

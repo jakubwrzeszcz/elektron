@@ -10,6 +10,14 @@
         <?php require __DIR__ . '../../menu.php'; ?>
 
         <main>
+            <div class="page-header">
+                <img src="" class="nav-logo" alt="Ikona produktów">
+                <div class="page-header-text">
+                    <h1>Zarządzanie produktami</h1>
+                    <p>Zarządzanie produktami z bazy danych</p>
+                </div>
+            </div>
+
             <header class="topbar">
                 <form method="POST" action="/elektron/admin/produkty">
                     <input type="text" name="produkt" class="search-input" placeholder="Wpisz produkt do wyszukania...">
