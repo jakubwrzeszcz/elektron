@@ -6,14 +6,25 @@
             require __DIR__ . '/../views/login/LoginForm.php';
         }
 
+        enum accountType {
+            case "klient";
+            case "firma";
+        }
+
         public function login() {
+            global $polaczenie;
             session_start();
             require_once "config.php";
 
-            // if ((!isset($_POST['login'])) || (!isset($_POST['password']))) {
-            //     header('Location: /elektron/logowanie');
-            //     exit();
-            // }
+            if($_SESSION['zalogowany'] = true && ($_SESSION['typ_sesji'] = "klient" || $_SESSION['typ_sesji'] = "firma")) {
+                header('Location: /elektron/');
+                exit();
+            }
+
+            if ((!isset($_POST['login'])) || (!isset($_POST['password']))) {
+                header('Location: /elektron/logowanie');
+                exit();
+            }
 
             if(isset($_POST['login'], $_POST['password'], $_POST['recaptcha_token'])) {
                 $login = $_POST['login'];
@@ -26,7 +37,7 @@
                     exit();
                 }
                 
-                if($account_type == 'klient') {
+                if($account_type === 'klient') {
                     if($result = mysqli_query($polaczenie, "SELECT * FROM klient WHERE adres_email='$login'")) {
                         if(mysqli_num_rows($result) > 0) {
                             $row = mysqli_fetch_assoc($result);
