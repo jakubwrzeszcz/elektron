@@ -15,6 +15,23 @@
                 WHERE pracownicy.adres_email = '{$_SESSION['adres_email']}'";
             return $this->executeQuery($sql);
         }
+
+        enum AccountType: string {
+            case KLIENT = "klient";
+            case FIRMA = "firma";
+        }
+
+        public function getUserByCredentails(string $email, AccountType $type) {
+            switch($type) {
+                case AccountType::KLIENT:
+                    $sql = "SELECT imie, nazwisko, adres_email, login, haslo FROM klient WHERE adres_email='$login'";
+                    break;
+                case AccountType::FIRMA:
+                    $sql = "SELECT * FROM firma WHERE firma.nip = '$login'";
+                    break;
+            }
+            return $this->executeQuery($sql);
+        }
     }
 
     class WorkerModel extends Models {
