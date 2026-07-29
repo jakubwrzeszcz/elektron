@@ -6,15 +6,9 @@
     <div class="menu-logo">
         <img src="../img/elektron.svg" alt="logo">
     </div>
-<<<<<<< Updated upstream
-    <a href="/elektron/admin" class="menu-link">Strona Główna</a>
-
-    <?php if(isWorkerAdminLogin()): ?>
-=======
 
     <?php if(isWorkerAdminLogin()): ?>
         <a href="/elektron/admin" class="menu-link">Strona Główna</a>
->>>>>>> Stashed changes
         <?php if(can('firmy.manage')): ?>
             <a href="/elektron/admin/firmy" class="menu-link">Wyświetlanie firm</a>
         <?php endif; ?>

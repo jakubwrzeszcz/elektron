@@ -23,7 +23,6 @@
             return $this->executeQuery($sql);
         }
 
-<<<<<<< Updated upstream
         public function getProfileUser(): array {
             $sql = "SELECT klient.imie, klient.nazwisko, wojewodztwo.wojewodztwo, miejscowosc.nazwa_miejscowosci, ulica.nazwa_ulicy, kod_pocztowy.kod_pocztowy, adres.numer_firmy FROM klient
                     JOIN adres ON adres.id_adres = klient.id_adres
@@ -38,14 +37,6 @@
 
 
         public function getUserByCredentails(string $login, AccountType $type) {
-=======
-        enum AccountType: string {
-            case KLIENT = "klient";
-            case FIRMA = "firma";
-        }
-
-        public function getUserByCredentails(string $email, AccountType $type) {
->>>>>>> Stashed changes
             switch($type) {
                 case AccountType::KLIENT:
                     $sql = "SELECT imie, nazwisko, adres_email, login, haslo FROM klient WHERE adres_email='$login'";
