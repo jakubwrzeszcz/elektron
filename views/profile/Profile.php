@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Elektron | Panel Administracyjny</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
     <div class="container">
@@ -40,18 +40,20 @@
             </div>
             <section class='profile-container'>
                 <?php
+                    foreach ($row as $pearsonRow):
+
                     echo "
                     <section class='profile-wrapper'>
                     <div class='profile-cardheader'>
                             <div class='profile-avatar'>
-                                <img src='img/name-icon.svg' alt='Pracownik'>
+                                <img src='../img/name-icon.svg' alt='Pracownik'>
                             </div>
                             <div class='profile-summary'>
                                 <h1>";
                                     if($_SESSION['typ_sesji'] == 'klient') {
-                                        echo "{$row['imie']} {$row['nazwisko']}";
+                                        echo "{$pearsonRow['imie']} {$pearsonRow['nazwisko']}";
                                     } else if($_SESSION['typ_sesji'] == 'firma') {
-                                        echo "{$row['nazwa_firmy']}";
+                                        echo "{$pearsonRow['nazwa_firmy']}";
                                     }
                     echo        "</h1>
                                 <span class='badge-role'>Klient</span>
@@ -61,33 +63,32 @@
                         <div class='profile-grid'>
                             <div class='profile-section-box'>
                                 <h2>
-                                    <img src='img/town.svg' alt='Adres' class='section-icon'> 
+                                    <img src='../img/town.svg' alt='Adres' class='section-icon'> 
                                     Dane adresowe
                                 </h2>
                                 
-                                <div class='info-group full-width'>
-                                    <label>Ulica i numer</label>
-                                    <p>{$row['nazwa_ulicy']} {$row['numer_firmy']}</p>
-                                </div>
-                                
                                 <div class='info-row'>
                                     <div class='info-group'>
+                                        <label>Ulica i numer</label>
+                                        <p>{$pearsonRow['nazwa_ulicy']} {$pearsonRow['numer_firmy']}</p>
+                                    </div>
+                                    <div class='info-group'>
                                         <label>Kod pocztowy</label>
-                                        <p>{$row['kod_pocztowy']}</p>
+                                        <p>{$pearsonRow['kod_pocztowy']}</p>
                                     </div>
                                     <div class='info-group'>
                                         <label>Miejscowość</label>
-                                        <p>{$row['nazwa_miejscowosci']}</p>
+                                        <p>{$pearsonRow['nazwa_miejscowosci']}</p>
                                     </div>
-                                </div>
-
-                                <div class='info-group'>
-                                    <label>Województwo</label>
-                                    <p>{$row['wojewodztwo']}</p>
+                                    <div class='info-group'>
+                                        <label>Województwo</label>
+                                        <p>{$pearsonRow['wojewodztwo']}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </section>";
+                    endforeach;
                 ?>
             </section>
         </main>
