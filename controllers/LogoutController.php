@@ -2,7 +2,7 @@
     class LogoutController {
         public function logout() {
             session_start();
-            if($_SESSION['zalogowany']) {
+            if(isset($_SESSION['zalogowany']) && $_SESSION['zalogowany']) {
                 unset($_SESSION['zalogowany']);
             }
 
