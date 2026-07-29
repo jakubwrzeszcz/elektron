@@ -14,7 +14,7 @@
                 <img src="../img/company.svg" class="nav-logo" alt="Ikona firmy">
                 <div class="page-header-text">
                     <h1>Zarządzanie firmami</h1>
-                    <p>Dodawanie, edycja i usuwanie firm z bazy danych</p>
+                    <p>Wyświetlanie firm z bazy danych</p>
                 </div>
             </div>
 

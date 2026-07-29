@@ -53,6 +53,7 @@
         public function profile() {
             require_once __DIR__ . '/../models/PersonModel.php';
             $profileModel = new ProfileModel($this->database);
+            $no_records = false;
 
             try {
                 $row = $profileModel->getProfile();

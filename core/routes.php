@@ -45,7 +45,8 @@
     $router->get('/admin/produkt/dodaj', ['ProductsController', 'createProductForm']);
     $router->post('/admin/produkt/dodaj', ['ProductsController', 'createProduct']);
     $router->post('/admin/produkt/usun', ['ProductsController', 'removeProduct']);
-    $router->get('/admin/produkt/edytuj', ['ProductsController', 'editProduct']);
+    $router->post('/admin/produkt/edytuj', ['ProductsController', 'editProductForm']);
+    $router->post('/admin/produkt/aktualizuj', ['ProductsController', 'updateProduct']);
 
     $router->get('/admin/profil', ['AdminIndexController', 'profile']);
     $router->get('/admin/pracownicy', ['AdminIndexController', 'workers']);

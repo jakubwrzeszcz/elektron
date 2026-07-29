@@ -23,7 +23,7 @@
             return $data;
         }
 
-        protected function executeInsertQuery(string $sql): bool {
+        protected function executeUpsertQuery(string $sql): bool {
             $result = mysqli_query($this->database, $sql);
 
             if ($result === false) {

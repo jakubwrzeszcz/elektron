@@ -19,12 +19,17 @@
 
         public function insertProduct(string $productName, int $grossPrice, int $netPrice, string $description, string $isAvailable) {
             $sql = "INSERT INTO `produkty`(`id_produktu`, `nazwa`, `opis`, `cena_netto`, `cena_brutto`, `czy_dostepne`) VALUES(NULL, '$productName', '$description', $netPrice, $grossPrice, '$isAvailable')";
-            return $this->executeInsertQuery($sql);
+            return $this->executeUpsertQuery($sql);
         }
 
         public function deleteProduct(int $productID) {
             $sql = "DELETE FROM `produkty` WHERE produkty.id_produktu = $productID";
             return $this->executeDeleteQuery($sql);
+        }
+
+        public function updateProduct(int $productID, string $productName, int $grossPrice, int $netPrice, string $description, string $isAvailable) {
+            $sql = "UPDATE `produkty` SET `nazwa`='$productName', `opis`='$description', `cena_netto`=$netPrice, `cena_brutto`=$grossPrice,`czy_dostepne`='$isAvailable' WHERE `id_produktu`=$productID";
+            return $this->executeUpsertQuery($sql);
         }
     }
 ?>

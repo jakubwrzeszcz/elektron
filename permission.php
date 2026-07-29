@@ -34,6 +34,13 @@
         }
     }
 
+    function isWorkerAdminLogin(): bool {
+        if (!isset($_SESSION['zalogowany']) || !$_SESSION['zalogowany'] || $_SESSION['typ_sesji'] != "pracownik" ) {
+            return false;
+        }
+        return true;
+    }
+
     function requireAccountType(string|array $types): void {
         $current = $_SESSION['typ_sesji'] ?? null;
         $allowed = (array) $types;
