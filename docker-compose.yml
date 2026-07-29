@@ -24,6 +24,10 @@ services:
       MYSQL_DATABASE: elektron
     volumes:
       - db_data:/var/lib/mysql
+<<<<<<< Updated upstream
+=======
+      - ./elektron.sql:/docker-entrypoint-initdb.d/dump.sql
+>>>>>>> Stashed changes
 
 volumes:
   db_data:

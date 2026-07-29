@@ -3,18 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Elektron | Strona Główna</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
     <div class="container">
-        <div class="menu">
-            <div class="menu-logo">
-                <img src="img/elektron.svg" alt="logo">
-            </div>
-            <a href="/elektron/logowanie" class="menu-link">Zaloguj się</a>
-            <a href="/elektron/rejestracja" class="menu-link">Zarejestuj się</a>
-        </div>
-
+            <?php require __DIR__ . '../../menu.php'; ?>
         <main>
             <header class="topbar">
                 <div class="topbar-icons">
