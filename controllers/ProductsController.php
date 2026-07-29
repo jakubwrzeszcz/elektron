@@ -1,6 +1,8 @@
 <?php
     class ProductsController {
 
+        private $database;
+
         public function __construct() {
             global $polaczenie;
             require_once "config.php";

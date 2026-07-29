@@ -1,7 +1,5 @@
 <?php
 
-    session_start();
-
     function can(string $permission): bool {
         if (($_SESSION['typ_sesji'] ?? null) !== 'pracownik') {
             return false;
@@ -21,7 +19,7 @@
     }
 
     function requireLogin(): void {
-        if (!$_SESSION['zalogowany'] || !isset($_SESSION['typ_sesji']) ) {
+        if (empty($_SESSION['zalogowany']) || !isset($_SESSION['typ_sesji']) ) {
             header('Location: /elektron/logowanie');
             exit;
         }

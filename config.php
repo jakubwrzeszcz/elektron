@@ -1,7 +1,7 @@
 <?php
-    $serwer = "localhost";
+    $serwer = "db";
     $login = "root";
-    $haslo = "";
+    $haslo = "root";
     $baza = "elektron";
 
     $polaczenie = @mysqli_connect($serwer, $login, $haslo, $baza);

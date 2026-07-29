@@ -24,6 +24,7 @@ services:
       MYSQL_DATABASE: elektron
     volumes:
       - db_data:/var/lib/mysql
+      - ./elektron.sql:/docker-entrypoint-initdb.d/dump.sql
 
 volumes:
   db_data:

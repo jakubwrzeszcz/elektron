@@ -1,10 +1,14 @@
+<?php
+    require_once "permission.php";
+?>
+
 <div class="menu">
     <div class="menu-logo">
         <img src="../img/elektron.svg" alt="logo">
     </div>
-    <a href="/elektron/admin" class="menu-link">Strona Główna</a>
 
     <?php if(isWorkerAdminLogin()): ?>
+        <a href="/elektron/admin" class="menu-link">Strona Główna</a>
         <?php if(can('firmy.manage')): ?>
             <a href="/elektron/admin/firmy" class="menu-link">Wyświetlanie firm</a>
         <?php endif; ?>
