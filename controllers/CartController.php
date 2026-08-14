@@ -44,7 +44,7 @@ class CartController {
                 $suma += $razem;
             }
         }
-        require __DIR__ . '/../views/cart/Cart.php';
+        require __DIR__ . '/../views/Cart.php';
     }
 
     public function add() {

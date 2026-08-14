@@ -3,7 +3,7 @@
 
     class IndexController {
         public function index() {
-            require __DIR__ . '/../views/index/index.php';
+            require __DIR__ . '/../views/index.php';
         }
     }
 
