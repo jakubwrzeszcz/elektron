@@ -690,3 +690,66 @@ button:hover{
 .invoice-summary-box td:first-child {
     text-align: left;
 }
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.cart-table th, 
+.cart-table td {
+    padding: 12px 10px;
+    vertical-align: middle; /* Wyrównanie w pionie do środka */
+    text-align: left;
+}
+
+/* Zawijanie nazwy produktu */
+.cart-table td.col-product {
+    word-break: break-word; /* Rozbijanie długich słów, np. wymiarów */
+    max-width: 300px;       /* Maksymalna szerokość kolumny z nazwą */
+}
+
+/* Wyrównanie kolumn z liczbami do środka lub prawej */
+.cart-table .col-qty,
+.cart-table .col-price,
+.cart-table .col-total {
+    text-align: center;
+    white-space: nowrap; /* Zapobiega łamaniu ceny typu "6.00 PLN" na 2 linie */
+}
+
+/* Ustawienie przycisków w jednym rzędzie */
+.actions-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px; /* Wstępny odstęp między przyciskami */
+}
+
+.actions-cell form {
+    margin: 0; /* Usuwa domyślne marginesy formularzy */
+    display: inline-block;
+}
+
+/* Dopasowanie przycisków + i - */
+.actions-cell .button-add,
+.actions-cell .button-back {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    line-height: 32px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Dopasowanie przycisku Usuń */
+.actions-cell .button-remove {
+    height: 32px;
+    padding: 0 10px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: pointer;
+}

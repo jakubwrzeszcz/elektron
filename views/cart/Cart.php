@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Elektron | Koszyk</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
     
@@ -37,50 +37,55 @@
             <section class="koszyk">
                 <h2 style="color: white">Zawartość koszyka</h2>
 
-                <?php if (empty($produkty)): ?>
-                    <p>Koszyk jest pusty</p>
+                <?php if (empty($produkty)): var_dump($produkty)?>
+                    <!-- <p>Koszyk jest pusty</p> -->
                 <?php else: ?>
 
-                <table>
-                    <tr>
-                        <th>Produkt</th>
-                        <th>Ilość</th>
-                        <th>Cena</th>
-                        <th>Razem</th>
-                        <th>Akcje</th>
-                    </tr>
-
-                    <?php foreach ($produkty as $p): ?>
+                <table class="cart-table">
+                    <thead>
                         <tr>
-                            <td><?= $p['nazwa'] ?></td>
-                            <td><?= $p['ilosc'] ?></td>
-                            <td><?= $p['cena_brutto'] ?></td>
-                            <td><?= $p['razem'] ?></td>
-                            <td>
-                                <form method="POST" action="/elektron/koszyk/add">
-                                    <input type="hidden" name="produkt_id" value="<?= $p['id_produktu'] ?>">
-                                    <button>+</button>
-                                </form>
-
-                                <form method="POST" action="/elektron/koszyk/decrease">
-                                    <input type="hidden" name="produkt_id" value="<?= $p['id_produktu'] ?>">
-                                    <button>-</button>
-                                </form>
-
-                                <form method="POST" action="/elektron/koszyk/remove">
-                                    <input type="hidden" name="produkt_id" value="<?= $p['id_produktu'] ?>">
-                                    <button>Usuń</button>
-                                </form>
-                            </td>
+                            <th class="col-product">Produkt</th>
+                            <th class="col-qty">Ilość</th>
+                            <th class="col-price">Cena</th>
+                            <th class="col-total">Razem</th>
+                            <th class="col-actions">Akcje</th>
                         </tr>
-                    <?php endforeach; ?>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($produkty as $p): ?>
+                            <tr>
+                                <td class="col-product"><?= htmlspecialchars($p['nazwa']) ?></td>
+                                <td class="col-qty"><?= $p['ilosc'] ?></td>
+                                <td class="col-price"><?= number_format($p['cena_brutto'], 2) ?> PLN</td>
+                                <td class="col-total"><?= number_format($p['razem'], 2) ?> PLN</td>
+                                <td class="col-actions">
+                                    <div class="actions-cell">
+                                        <form method="POST" action="/elektron/koszyk/zwieksz">
+                                            <input type="hidden" name="produkt_id" value="<?= $p['id_produktu'] ?>">
+                                            <button type="submit" class="button button-add" title="Zwiększ ilość">+</button>
+                                        </form>
+
+                                        <form method="POST" action="/elektron/koszyk/zmniejsz">
+                                            <input type="hidden" name="produkt_id" value="<?= $p['id_produktu'] ?>">
+                                            <button type="submit" class="button button-back" title="Zmniejsz ilość">-</button>
+                                        </form>
+
+                                        <form method="POST" action="/elektron/koszyk/usun">
+                                            <input type="hidden" name="produkt_id" value="<?= $p['id_produktu'] ?>">
+                                            <button type="submit" class="button button-remove">Usuń</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
                 </table>
 
                 <p><b>Suma: <?= $suma ?> PLN</b></p>
 
                 <?php endif; ?>
-                    <a class='link' href="/elektron/produkty">⬅ Wróć do produktów</a>
             </section>
+            <a class='link' href="/elektron/produkty">⬅ Wróć do produktów</a>
         </main>
     </div>
 
