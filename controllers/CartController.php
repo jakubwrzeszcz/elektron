@@ -17,6 +17,7 @@
             if (!isset($_SESSION['koszyk'])) {
                 $_SESSION['koszyk'] = [];
             }
+            require __DIR__ . '/../views/Cart.php';
         }
 
         private function getProductId(): ?int {

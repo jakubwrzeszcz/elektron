@@ -48,7 +48,7 @@
             //         }
             //     }
             // }
-            require __DIR__ . '/../views/profile/Profile.php';
+            require __DIR__ . '/../views/Profile.php';
         }
     }
 ?>

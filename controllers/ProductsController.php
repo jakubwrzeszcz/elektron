@@ -25,7 +25,7 @@
                 $error_message = $e->getMessage();
             }
 
-            require __DIR__ . '/../views/products/Products.php';
+            require __DIR__ . '/../views/Products.php';
         }
 
         public function getAdminAllProducts() {

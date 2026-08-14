@@ -3,7 +3,7 @@
         public function index() {
             require_once "config.php";
             require_once "permission.php";
-            require __DIR__ . '/../views/login/AdminLoginForm.php';
+            require __DIR__ . '/../views/AdminLoginForm.php';
         }
 
         public function login() {
