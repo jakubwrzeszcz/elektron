@@ -1,22 +1,24 @@
 <?php
     require_once "config.php";
 
+    // TODO: Prepare for MVC
+
     class RegisterController {
         public function index() {
-            require __DIR__ . '/../views/registration/registration.php';
+            require __DIR__ . '/../views/registration.php';
         }
 
         public function register() {
             session_start();
             if ((!isset($_POST['login'])) || (!isset($_POST['password']))) {
                 $_SESSION['blad'] = '<span style="color:red">Brak loginu lub hasła</span>';
-                header('Location: rejestracja-formularz.php');
+                header("Location: /rejestracja");
                 exit();
             }
 
             if(verifyCaptcha($_POST['recaptcha_token'])) {
                 $_SESSION['blad'] = '<span style="color:red">Błąd w captcha v3!</span>';
-                header("Location: rejestracja-formularz.php");
+                header("Location: /rejestracja");
                 exit();
             }
 
@@ -31,7 +33,7 @@
                     $sprawdz = mysqli_query($polaczenie, "SELECT * FROM `klient` WHERE `login`='$login' OR `adres_email`='$adres_email'");
                     if(mysqli_num_rows($sprawdz) > 0) {
                         $_SESSION['blad'] = '<span style="color:red">Użytkownik o podanym loginie lub email już istnieje!</span>';
-                        header("Location: logowanie-formularz.php");
+                        header("Location: /logowanie");
                         exit();
                     }
                     // TODO: Unable to type an address for specific user.
@@ -43,27 +45,27 @@
                     if($result) {
                         if(mysqli_affected_rows($polaczenie) == 1) {
                             $_SESSION['blad'] = '<span style="color:green">Udało się dodać użytkownika. Proszę się zalogować, aby móc korzystać z serwisu.</span>';
-                            header("Location: logowanie-formularz.php");
+                            header("Location: /logowanie");
                             exit();
                         } else {
                             $_SESSION['blad'] = '<span style="color:red">Nie udało się dodać użytkownika (0 wierszy)</span>';
-                            header("Location: rejestracja-formularz.php");
+                            header("Location: /rejestracja");
                             exit();
                         }
                     } else {
                         $error = mysqli_error($polaczenie);
                         $_SESSION['blad'] = '<span style="color:red">Błąd zapytania: ' . $error . '</span>';
-                        header("Location: rejestracja-formularz.php");
+                        header("Location: /rejestracja");
                         exit();
                     }
                 } else {
                     $_SESSION['blad'] = '<span style="color:red">Nieobsługiwany typ konta: ' . $_POST['typ_logowania'] . '</span>';
-                    header("Location: rejestracja-formularz.php");
+                    header("Location: /rejestracja");
                     exit();
                 }
             } else {
                 $_SESSION['blad'] = '<span style="color:red">Błąd przetwarzania formularza. Brakujące pola.</span>';
-                header("Location: rejestracja-formularz.php");
+                header("Location: /rejestracja");
                 exit();
             }
 

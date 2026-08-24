@@ -26,6 +26,8 @@
             }
 
             require __DIR__ . '/../views/Products.php';
+            echo require __DIR__ . '/../views/Products.php';
+
         }
 
         public function getAdminAllProducts() {

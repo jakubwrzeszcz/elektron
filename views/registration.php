@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Elektron | Rejestracja</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="../style.css" type="text/css">
     <script src="https://www.google.com/recaptcha/api.js?render=6LdD0IMsAAAAALlC1-TNJl0ZGD_7zrGIHUWmJ7Dj"></script>
 </head>
 <body>
