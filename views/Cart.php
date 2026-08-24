@@ -37,8 +37,8 @@
             <section class="koszyk">
                 <h2 style="color: white">Zawartość koszyka</h2>
 
-                <?php if (empty($produkty)): var_dump($produkty)?>
-                    <!-- <p>Koszyk jest pusty</p> -->
+                <?php if (empty($produkty)):?>
+                    <p>Koszyk jest pusty</p>
                 <?php else: ?>
 
                 <table class="cart-table">

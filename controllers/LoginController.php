@@ -13,7 +13,7 @@
         }
 
         public function index() {
-            require __DIR__ . '/../views/login/LoginForm.php';
+            require __DIR__ . '/../views/LoginForm.php';
         }
 
         public function login() {
