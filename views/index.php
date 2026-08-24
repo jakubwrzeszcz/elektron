@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="container">
-            <?php require __DIR__ . '../../menu.php'; ?>
+            <?php require __DIR__ . '/menu.php'; ?>
         <main>
             <header class="topbar">
                 <div class="topbar-icons">
